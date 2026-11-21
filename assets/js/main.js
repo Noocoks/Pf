@@ -126,14 +126,14 @@
         const bounds = heroVisual.getBoundingClientRect();
         const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
         const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-        heroVisual.style.setProperty('--pointer-x', String(x));
-        heroVisual.style.setProperty('--pointer-y', String(y));
+        heroVisual.style.setProperty('--pointer-rotate-y', (-x * 3).toFixed(2) + 'deg');
+        heroVisual.style.setProperty('--pointer-rotate-x', (y * 3).toFixed(2) + 'deg');
         pointerFrame = 0;
       });
     });
     heroVisual.addEventListener('pointerleave', () => {
-      heroVisual.style.setProperty('--pointer-x', '0');
-      heroVisual.style.setProperty('--pointer-y', '0');
+      heroVisual.style.setProperty('--pointer-rotate-y', '0deg');
+      heroVisual.style.setProperty('--pointer-rotate-x', '0deg');
     });
   }
 
