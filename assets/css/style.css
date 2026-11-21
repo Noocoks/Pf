@@ -4099,3 +4099,10 @@ body {
 .project-card:hover .project-art.brand-art .project-logo {
   transform:translate(-50%,-50%) scale(1.075) rotate(-1.5deg);
 }
+
+
+/* Keep project artwork clean: remove decorative captions over the logos */
+.project-art.brand-art .art-top,
+.project-art.brand-art .art-bottom {
+  display:none;
+}
