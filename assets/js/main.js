@@ -116,6 +116,27 @@
     }
   }
 
+  // Gentle pointer parallax for the hero instrument panel (desktop only).
+  const heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let pointerFrame = 0;
+    heroVisual.addEventListener('pointermove', (event) => {
+      if (pointerFrame) cancelAnimationFrame(pointerFrame);
+      pointerFrame = requestAnimationFrame(() => {
+        const bounds = heroVisual.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+        heroVisual.style.setProperty('--pointer-x', String(x));
+        heroVisual.style.setProperty('--pointer-y', String(y));
+        pointerFrame = 0;
+      });
+    });
+    heroVisual.addEventListener('pointerleave', () => {
+      heroVisual.style.setProperty('--pointer-x', '0');
+      heroVisual.style.setProperty('--pointer-y', '0');
+    });
+  }
+
   // Progressive reveal; content remains visible if observation is unavailable.
   const revealTargets = document.querySelectorAll(
     '.section-heading, .about-main, .about-facts, .project-card, .stack-card, .tech-logos, .lab-copy, .contact-panel, .intro-strip'
