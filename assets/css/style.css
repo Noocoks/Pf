@@ -4035,3 +4035,44 @@ body {
   .hero-visual:after,.intro-strip:before,.project-art:after { animation:none!important; }
   .project-card,.stack-card { transition:none!important; }
 }
+
+
+/* DETAIL FIX — restore centered logo zoom and tighten the contact panel */
+.project-logo {
+  transform:translate(-50%, -50%) scale(1);
+  transition:transform .7s var(--ease-out), filter .6s ease;
+}
+.project-card:hover .project-logo {
+  transform:translate(-50%, -50%) scale(1.075) rotate(-1.5deg);
+  filter:drop-shadow(0 20px 34px rgba(0,0,0,.72));
+}
+.contact-panel {
+  min-height:260px;
+  padding:38px 44px;
+  gap:28px;
+}
+.contact-panel h2 {
+  font-size:clamp(36px,4.4vw,52px);
+  line-height:1.04;
+}
+.contact-copy {
+  max-width:440px;
+  margin-top:14px;
+  line-height:1.75;
+}
+.contact-actions { gap:14px; }
+.contact-watermark { opacity:.045; }
+@media(max-width:800px) {
+  .contact-panel {
+    min-height:0;
+    padding:30px 25px;
+    gap:24px;
+  }
+}
+@media(max-width:520px) {
+  .contact-panel { padding:26px 21px; }
+  .contact-panel h2 { font-size:clamp(34px,9vw,44px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .project-logo { transition:none!important; }
+}
