@@ -148,21 +148,26 @@ a,button{transition-duration:var(--motion-base)}
  .motion-ready .reveal,.motion-ready .reveal.reveal-left,.motion-ready .reveal.reveal-right{opacity:1;transform:none;transition:none}
 }
 
-/* Scroll atmosphere — a subtle ambient color journey between sections */
-body{isolation:isolate;background:#090909}
-.scroll-atmosphere{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:#090909}
-.scroll-atmosphere .atmosphere-layer{position:absolute;inset:-12%;opacity:0;transition:opacity 1200ms cubic-bezier(.22,1,.36,1);will-change:opacity}
-.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{content:"";position:absolute;inset:0}
-.scroll-atmosphere .atmosphere-layer::before{background:radial-gradient(ellipse at 18% 24%,var(--glow-a),transparent 48%),radial-gradient(ellipse at 82% 76%,var(--glow-b),transparent 45%)}
-.scroll-atmosphere .atmosphere-layer::after{background:linear-gradient(115deg,transparent 20%,#09090955 52%,transparent 82%)}
-.scroll-atmosphere .scene-hero{--glow-a:#57151d55;--glow-b:#29202b35}
-.scroll-atmosphere .scene-profile{--glow-a:#3e161d45;--glow-b:#28242b35}
-.scroll-atmosphere .scene-projects{--glow-a:#751b254c;--glow-b:#29161e42}
-.scroll-atmosphere .scene-stack{--glow-a:#252d3c40;--glow-b:#4a1a2340}
-.scroll-atmosphere .scene-lab{--glow-a:#173d3b38;--glow-b:#38192345}
-.scroll-atmosphere .scene-contact{--glow-a:#65192355;--glow-b:#34202d48}
-.scroll-atmosphere .atmosphere-layer.is-active{opacity:1}
-.scroll-atmosphere .atmosphere-grain{position:absolute;inset:0;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+
+/* Immersive animated background: continuously moving light fields + scroll crossfades */
+body{background:#08090b;isolation:isolate}
+.scroll-atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(145deg,#08090b 0%,#0b090c 48%,#08090b 100%);contain:paint}
+.scroll-atmosphere::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 25%,#050608a8 100%);z-index:3}
+.scroll-atmosphere .atmosphere-layer{position:absolute;inset:-8%;opacity:0;will-change:opacity;transition:opacity 80ms linear;overflow:hidden}
+.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{content:"";position:absolute;inset:-18%;border-radius:50%;filter:blur(58px);will-change:transform}
+.scroll-atmosphere .atmosphere-layer::before{background:radial-gradient(ellipse at 28% 34%,var(--glow-a) 0%,transparent 43%),radial-gradient(ellipse at 72% 70%,var(--glow-b) 0%,transparent 42%);animation:ambient-drift-a 25s ease-in-out infinite alternate}
+.scroll-atmosphere .atmosphere-layer::after{background:radial-gradient(ellipse at 75% 25%,var(--glow-c) 0%,transparent 38%),radial-gradient(ellipse at 24% 82%,var(--glow-d) 0%,transparent 40%);animation:ambient-drift-b 34s ease-in-out infinite alternate}
+.scroll-atmosphere .scene-hero{--glow-a:#8e182b80;--glow-b:#38233f70;--glow-c:#7b142c55;--glow-d:#151b2d55}
+.scroll-atmosphere .scene-profile{--glow-a:#79203370;--glow-b:#33233c65;--glow-c:#a12c3d45;--glow-d:#171a2a50}
+.scroll-atmosphere .scene-projects{--glow-a:#b01c3275;--glow-b:#51203370;--glow-c:#75182d65;--glow-d:#17131f65}
+.scroll-atmosphere .scene-stack{--glow-a:#293c5870;--glow-b:#5a233a65;--glow-c:#263f5470;--glow-d:#6d1b2d50}
+.scroll-atmosphere .scene-lab{--glow-a:#1e625a65;--glow-b:#52243d70;--glow-c:#173d4b70;--glow-d:#8a1b3150}
+.scroll-atmosphere .scene-contact{--glow-a:#a51b3278;--glow-b:#4a234d70;--glow-c:#77182d65;--glow-d:#24203a65}
+.scroll-atmosphere .atmosphere-grain{position:absolute;inset:0;z-index:4;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+body>*:not(.scroll-atmosphere){position:relative;z-index:1}
+@keyframes ambient-drift-a{0%{transform:translate3d(-5%,-3%,0) rotate(-8deg) scale(1)}50%{transform:translate3d(4%,5%,0) rotate(8deg) scale(1.14)}100%{transform:translate3d(-2%,7%,0) rotate(-3deg) scale(1.06)}}
+@keyframes ambient-drift-b{0%{transform:translate3d(5%,4%,0) rotate(9deg) scale(1.1)}50%{transform:translate3d(-6%,-4%,0) rotate(-7deg) scale(.96)}100%{transform:translate3d(3%,-6%,0) rotate(5deg) scale(1.16)}}
 .scroll-progress{position:fixed;z-index:1001;top:0;left:0;height:2px;width:100%;pointer-events:none;background:#ffffff0a}
-.scroll-progress span{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#7d1d28,#d24a52,#a62a35);box-shadow:0 0 12px #b52b3b88}
-@media(prefers-reduced-motion:reduce){.scroll-atmosphere .atmosphere-layer{transition:none}.scroll-progress{display:none}}
+.scroll-progress span{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#7d1d28,#d24a52,#d78b8f);box-shadow:0 0 14px #c52b4388}
+@media(max-width:680px){.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{filter:blur(42px)}}
+@media(prefers-reduced-motion:reduce){.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{animation:none}.scroll-atmosphere .atmosphere-layer{transition:none}.scroll-progress{display:none}}
