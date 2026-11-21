@@ -208,7 +208,7 @@ main{position:relative;z-index:1}.site-header,.site-footer{z-index:2}
 .main-nav a:not(.nav-contact)::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:linear-gradient(90deg,#8c202e,#e15a68);transition:right .55s var(--motion-premium)}
 .main-nav a:not(.nav-contact):hover::after{right:0}
 /* Hero visual becomes a layered instrument panel with animated light, orbit paths and HUD */
-.hero-visual{isolation:isolate;overflow:hidden;border:0;background:radial-gradient(ellipse at 50% 48%,#271116 0,#120d11 43%,#08090d 100%);box-shadow:0 28px 90px #0009,0 0 65px #9d1b2920;transform:perspective(1100px) rotateY(calc(var(--pointer-x,0)*-3deg)) rotateX(calc(var(--pointer-y,0)*3deg));transition:transform .8s var(--motion-premium),box-shadow .8s var(--motion-premium)}
+.hero-visual{isolation:isolate;overflow:hidden;border:0;background:radial-gradient(ellipse at 50% 48%,#271116 0,#120d11 43%,#08090d 100%);box-shadow:0 28px 90px #0009,0 0 65px #9d1b2920;transform:perspective(1100px) rotateY(var(--pointer-rotate-y,0deg)) rotateX(var(--pointer-rotate-x,0deg));transition:transform .8s var(--motion-premium),box-shadow .8s var(--motion-premium)}
 .hero-visual::before{content:"";position:absolute;inset:0;padding:1px;z-index:10;pointer-events:none;background:conic-gradient(from var(--hero-edge,0deg),#5c202b,#e34b5b,#542438,#a84b5d,#5c202b);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:hero-border-spin 12s linear infinite}
 .hero-visual::after{content:"";position:absolute;inset:-45%;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 48%,#b12a3a35,transparent 48%),radial-gradient(ellipse at 20% 70%,#4a254c30,transparent 40%);filter:blur(24px);animation:hero-aura 12s ease-in-out infinite alternate}
 @property --hero-edge{syntax:"<angle>";initial-value:0deg;inherits:false}
@@ -269,5 +269,5 @@ main{position:relative;z-index:1}.site-header,.site-footer{z-index:2}
 }
 @media(prefers-reduced-motion:reduce){
  .project-card::before,.stack-card::before,.tech-logos::before,.contact-panel::before,.support-repos::before{animation:none;opacity:.18}
- .hero-visual,.hero-visual::before,.hero-visual::after,.visual-grid,.visual-aurora,.visual-ring,.visual-core,.visual-core::before,.visual-core strong,.visual-orbit,.visual-particle,.visual-scanline,.visual-hud,.visual-cross,.eyebrow-line,.intro-strip::after{animation:none!important;transition:none!important;transform:none}
+ .hero-visual,.hero-visual::before,.hero-visual::after,.visual-grid,.visual-aurora,.visual-ring,.visual-core,.visual-core::before,.visual-core strong,.visual-orbit,.visual-particle,.visual-scanline,.visual-hud,.visual-cross,.eyebrow-line,.intro-strip::after{animation:none!important;transition:none!important}.visual-core,.visual-ring{transform:translate(-50%,-50%)!important}.visual-orbit{transform:translate(-50%,-50%) rotate(-32deg)!important}.visual-orbit.orbit-b{transform:translate(-50%,-50%) rotate(48deg)!important}
 }
