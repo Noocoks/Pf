@@ -4232,16 +4232,17 @@ body {
 .hero-visual-ribbon {
   position:absolute;
   z-index:5;
-  right:-1px;
-  top:44%;
+  right:14px;
+  top:50%;
   padding:9px 17px 9px 20px;
   background:rgba(117,20,36,.84);
   color:#fff;
   font:9px var(--mono);
   letter-spacing:.16em;
-  transform:rotate(-90deg) translateX(50%);
+  transform:translateY(-50%) rotate(-90deg);
   transform-origin:right center;
   border-left:2px solid #e14b59;
+  white-space:nowrap;
 }
 .hero-visual-ribbon span { color:#ff9aa2; margin-left:10px; }
 .hero-visual-bottom {
