@@ -5,7 +5,7 @@ Portfolio personal orientado al desarrollo web, los sistemas, la infraestructura
 ## Contenido
 - Presentación y perfil.
 - Formación DAW y experiencia práctica.
-- Proyectos: **Libreta**, **SOUNWD** y laboratorio **CyberDeck**.
+- Proyectos.
 - Áreas técnicas, tecnologías y contacto.
 
 ## Estructura
@@ -18,20 +18,6 @@ Portfolio personal orientado al desarrollo web, los sistemas, la infraestructura
 │   └── favicon.svg
 └── README.md
 ```
-
-## Publicación con GitHub Pages
-1. Abre **Settings → Pages**.
-2. En **Build and deployment**, selecciona **Deploy from a branch**.
-3. Selecciona la rama `main` y la carpeta `/ (root)`.
-4. Guarda y espera a que finalice el despliegue.
-
-## Personalización pendiente
-Antes de dar el portfolio por definitivo, conviene completar y verificar:
-- Nombre y apellidos que se quieran mostrar profesionalmente.
-- Correo de contacto y perfil de LinkedIn, si se desea.
-- CV PDF actualizado.
-- Capturas reales de los proyectos.
-- Revisión final de tecnologías, formación y experiencia.
 
 El contenido evita atribuir certificaciones, niveles de dominio o resultados que no estén verificados.
 
