@@ -3863,3 +3863,175 @@ body:before {
   transition:none!important
 }
 }
+
+
+/* PROFESSIONAL PASS — refined hierarchy, calmer motion and clearer content */
+:root {
+  --bg:#08090b;
+  --bg-soft:#0e1013;
+  --panel:#121418;
+  --panel-2:#181b20;
+  --line:rgba(255,255,255,.10);
+  --line-soft:rgba(255,255,255,.065);
+  --red:#8f1d2b;
+  --red-bright:#c53b49;
+  --red-soft:#35151b;
+}
+body {
+  background-color:var(--bg);
+  letter-spacing:-.008em;
+}
+.site-header {
+  background:rgba(8,9,11,.92);
+  border-bottom-color:rgba(255,255,255,.075);
+}
+.brand-mark {
+  border-color:rgba(197,59,73,.5);
+  background:linear-gradient(145deg,#241116,#100d10);
+}
+.main-nav { gap:clamp(18px,2.4vw,34px); }
+.main-nav a { transition:color .25s ease,opacity .25s ease; }
+.main-nav a:hover { color:#fff; }
+.hero {
+  min-height:690px;
+  padding-top:clamp(76px,8vw,112px);
+  padding-bottom:76px;
+  column-gap:clamp(36px,5vw,76px);
+}
+.hero-copy { max-width:620px; }
+.hero h1 { font-size:clamp(60px,7vw,94px); line-height:1.01; }
+.hero-lead { max-width:540px; color:#b4b1b0; font-size:15.5px; }
+.hero-visual {
+  border-color:rgba(197,59,73,.22);
+  box-shadow:0 28px 75px rgba(0,0,0,.42),inset 0 0 55px rgba(145,22,42,.07);
+}
+.hero-visual:after { opacity:.42; animation-duration:26s; }
+.visual-ring { opacity:.72; }
+.visual-particle { opacity:.65; }
+.visual-hud,.visual-coordinate,.visual-side { color:rgba(232,226,225,.65); }
+.intro-strip {
+  background:linear-gradient(90deg,rgba(71,15,25,.16),rgba(15,16,19,.84),rgba(71,15,25,.12));
+  border-color:rgba(255,255,255,.075);
+}
+.intro-strip:before { opacity:.45; animation-duration:17s; }
+.section { padding-top:clamp(88px,10vw,136px); padding-bottom:clamp(88px,10vw,136px); }
+.section-heading { margin-bottom:52px; }
+.section-heading:after { margin-top:23px; box-shadow:none; opacity:.8; }
+.section-heading h2 { line-height:1.08; }
+.muted { color:#858184; }
+.section-description { max-width:610px; color:#a5a1a0; }
+.about-grid { gap:clamp(38px,6vw,88px); }
+.about-main p { color:#aaa6a5; line-height:1.95; }
+.about-main .large-copy { color:#eeebea; font-size:clamp(18px,2vw,22px); line-height:1.65; }
+.fact { border-bottom:1px solid rgba(255,255,255,.075); }
+.fact-number { color:var(--red-bright); }
+.fact strong { color:#f2eeee; }
+.fact p { color:#a5a0a0; }
+.workflow-block {
+  display:grid;
+  grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:clamp(32px,6vw,88px);
+  margin-top:clamp(58px,7vw,92px);
+  padding:clamp(26px,4vw,46px);
+  border:1px solid rgba(255,255,255,.085);
+  background:linear-gradient(125deg,rgba(24,19,22,.82),rgba(13,14,17,.82));
+}
+.workflow-intro h3 {
+  max-width:440px;
+  margin:20px 0 14px;
+  font-size:clamp(25px,3vw,38px);
+  line-height:1.15;
+  letter-spacing:-.055em;
+}
+.workflow-intro>p:last-child {
+  max-width:430px;
+  color:#aaa5a4;
+  line-height:1.85;
+}
+.workflow-steps { display:grid; }
+.workflow-steps article {
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.workflow-steps article:first-child { padding-top:5px; }
+.workflow-steps article:last-child { border-bottom:0; padding-bottom:0; }
+.workflow-steps article>span {
+  color:var(--red-bright);
+  font:12px var(--mono);
+  padding-top:4px;
+}
+.workflow-steps strong { display:block; color:#f0eded; font-size:14px; margin-bottom:5px; }
+.workflow-steps p { margin:0; color:#a8a3a2; font-size:13px; line-height:1.75; }
+.section-dark {
+  background:linear-gradient(180deg,rgba(13,14,17,.97),rgba(8,9,11,.98));
+}
+.project-list { gap:28px; }
+.project-card {
+  border-color:rgba(255,255,255,.09);
+  background:linear-gradient(135deg,rgba(22,23,27,.97),rgba(12,13,16,.98));
+  box-shadow:0 18px 52px rgba(0,0,0,.24);
+  transition:transform .45s ease,border-color .4s ease,box-shadow .4s ease;
+}
+.project-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(197,59,73,.32);
+  box-shadow:0 24px 60px rgba(0,0,0,.32);
+}
+.project-art { min-height:330px; }
+.project-art:after { opacity:.45; animation-duration:48s; }
+.project-content { padding:clamp(28px,3.4vw,48px); }
+.project-content>p { color:#aaa6a5; line-height:1.85; }
+.project-kicker { color:#c0babb; }
+.project-state { border-color:rgba(197,59,73,.32); }
+.tag-list span {
+  background:rgba(255,255,255,.025);
+  border-color:rgba(255,255,255,.11);
+  color:#c4bfc0;
+}
+.tag-list span:hover { background:rgba(143,29,43,.15); }
+.stack-card {
+  min-height:270px;
+  background:linear-gradient(145deg,rgba(22,23,27,.9),rgba(12,13,16,.9));
+  border-color:rgba(255,255,255,.085);
+  transition:transform .4s ease,border-color .4s ease,background .4s ease;
+}
+.stack-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(197,59,73,.3);
+  background:linear-gradient(145deg,rgba(30,22,26,.94),rgba(13,14,17,.94));
+}
+.stack-card:before { opacity:.55; }
+.stack-card:after { background:linear-gradient(var(--red-bright),transparent); }
+.tech-logos {
+  border-color:rgba(255,255,255,.085);
+  background:rgba(255,255,255,.018);
+}
+.section-lab {
+  background:radial-gradient(ellipse at 12% 50%,rgba(111,18,36,.15),transparent 42%),linear-gradient(120deg,#0d0e11,#111115 55%,#090a0c);
+}
+.lab-copy>p { color:#aaa5a4; line-height:1.9; }
+.lab-copy .large-copy { color:#f0eded; }
+.contact-panel {
+  border-color:rgba(197,59,73,.25);
+  background:radial-gradient(ellipse at 85% 15%,rgba(133,24,42,.16),transparent 42%),linear-gradient(125deg,#171216,#0e0f12 60%,#151115);
+  box-shadow:0 26px 72px rgba(0,0,0,.28);
+}
+.button-primary { box-shadow:0 7px 24px rgba(143,29,43,.18); }
+.button-primary:hover { box-shadow:0 10px 30px rgba(143,29,43,.25); }
+.site-footer { background:#07080a; }
+@media(max-width:800px) {
+  .workflow-block { grid-template-columns:1fr; gap:20px; }
+  .hero { min-height:auto; padding-bottom:80px; }
+}
+@media(max-width:520px) {
+  .workflow-block { padding:23px 20px; }
+  .workflow-steps article { grid-template-columns:34px 1fr; gap:12px; }
+  .project-art { min-height:245px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .hero-visual:after,.intro-strip:before,.project-art:after { animation:none!important; }
+  .project-card,.stack-card { transition:none!important; }
+}
