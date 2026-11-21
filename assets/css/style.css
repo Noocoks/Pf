@@ -101,3 +101,49 @@
  .stack-icon{margin:20px 0 12px}
  .stack-card p{margin-bottom:10px}
 }
+
+/* Motion system — smooth, restrained and accessible */
+:root{--motion-fast:180ms;--motion-base:320ms;--motion-slow:700ms;--motion-ease:cubic-bezier(.22,1,.36,1);--motion-soft:cubic-bezier(.2,.7,.2,1)}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+a,button,.project-card,.stack-card,.project-logo,.visual-core,.visual-ring,.hero-visual,.contact-panel,.brand-mark{transition-timing-function:var(--motion-ease)}
+a,button{transition-duration:var(--motion-base)}
+.main-nav a,.text-link,.repo-link,.project-link,.contact-secondary{transition:color var(--motion-base),border-color var(--motion-base),opacity var(--motion-base),transform var(--motion-base)}
+.button{transition:transform var(--motion-base),background var(--motion-base),border-color var(--motion-base),box-shadow var(--motion-base)}
+.button:hover{transform:translateY(-3px)}
+.button-primary:hover{box-shadow:0 9px 28px #a7192438}
+.brand-mark{transition:background var(--motion-base),border-color var(--motion-base),transform var(--motion-base)}
+.brand:hover .brand-mark{transform:rotate(-6deg);background:#281014;border-color:#91313b}
+.project-card,.stack-card{transition:transform 420ms var(--motion-ease),border-color 420ms var(--motion-ease),background 420ms var(--motion-ease),box-shadow 420ms var(--motion-ease)}
+.project-card:hover{transform:translateY(-5px);border-color:#633039;box-shadow:0 18px 50px #0005}
+.stack-card:hover{transform:translateY(-5px);border-color:#653039;background:linear-gradient(145deg,#1a1516,#111)}
+.project-logo{transition:transform 650ms var(--motion-ease),filter 650ms var(--motion-ease)}
+.project-card:hover .project-logo{transform:translate(-50%,-50%) scale(1.045);filter:drop-shadow(0 16px 30px #000a)}
+.hero-visual{transition:border-color 500ms var(--motion-ease),box-shadow 500ms var(--motion-ease)}
+.hero-visual:hover{border-color:#71313a;box-shadow:0 20px 65px #9d1b2918}
+.visual-ring.ring-one{animation:ring-breathe 12s ease-in-out infinite}
+.visual-ring.ring-two{animation:ring-rotate 48s linear infinite}
+.visual-core{animation:core-breathe 7s ease-in-out infinite}
+.status-dot{animation:status-pulse 3s ease-in-out infinite}
+.contact-panel{transition:border-color 500ms var(--motion-ease),box-shadow 500ms var(--motion-ease)}
+.contact-panel:hover{border-color:#78323a;box-shadow:0 18px 55px #8e172018}
+@keyframes ring-breathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.045);opacity:1}}
+@keyframes ring-rotate{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes core-breathe{0%,100%{box-shadow:0 0 55px #9d1b2918}50%{box-shadow:0 0 85px #9d1b2930}}
+@keyframes status-pulse{0%,100%{box-shadow:0 0 0 0 #b3283300}50%{box-shadow:0 0 0 5px #b3283318}}
+/* Elements are revealed as they enter the viewport; JS adds .motion-ready */
+.motion-ready .reveal{opacity:0;transform:translate3d(0,26px,0);transition:opacity 760ms var(--motion-ease),transform 760ms var(--motion-ease);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
+.motion-ready .reveal.is-visible{opacity:1;transform:translate3d(0,0,0);will-change:auto}
+.motion-ready .reveal.reveal-left{transform:translate3d(-24px,0,0)}
+.motion-ready .reveal.reveal-left.is-visible{transform:translate3d(0,0,0)}
+.motion-ready .reveal.reveal-right{transform:translate3d(24px,0,0)}
+.motion-ready .reveal.reveal-right.is-visible{transform:translate3d(0,0,0)}
+@media(max-width:680px){
+ .project-card:hover,.stack-card:hover{transform:translateY(-2px)}
+ .motion-ready .reveal.reveal-left,.motion-ready .reveal.reveal-right{transform:translate3d(0,20px,0)}
+ .motion-ready .reveal.reveal-left.is-visible,.motion-ready .reveal.reveal-right.is-visible{transform:translate3d(0,0,0)}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+ .motion-ready .reveal,.motion-ready .reveal.reveal-left,.motion-ready .reveal.reveal-right{opacity:1;transform:none;transition:none}
+}
