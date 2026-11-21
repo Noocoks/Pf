@@ -4281,3 +4281,36 @@ body {
   left:-.075em;
   margin-right:-.075em;
 }
+
+
+/* FINAL SPACING TUNING — center the hero ribbon and compact contact */
+.hero-visual-ribbon {
+  top:50%;
+  right:62px;
+  transform:translateY(-50%) rotate(-90deg);
+  transform-origin:center center;
+}
+.contact-panel {
+  min-height:210px;
+  padding:28px 36px;
+  gap:22px;
+}
+.contact-panel h2 {
+  font-size:clamp(34px,3.8vw,46px);
+}
+@media(max-width:800px) {
+  .contact-panel {
+    min-height:0;
+    padding:27px 25px;
+    gap:20px;
+  }
+}
+@media(max-width:520px) {
+  .contact-panel {
+    padding:24px 21px;
+    gap:18px;
+  }
+  .contact-panel h2 {
+    font-size:clamp(32px,8.5vw,40px);
+  }
+}
