@@ -4,3 +4,21 @@
 @media(max-width:390px){.container{width:calc(100% - 30px)}.hero h1{font-size:55px}.hero-actions{gap:17px}.button{padding-inline:14px;gap:12px}.hero-meta{font-size:8px}.stack-grid{grid-template-columns:1fr}.stack-card{min-height:0}.stack-card p{min-height:0}.stack-card .stack-icon{margin:20px 0 12px}.strip-inner{align-items:flex-start;flex-direction:column;padding-block:14px;gap:5px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 :focus-visible{outline:2px solid var(--red-bright);outline-offset:4px}
+
+/* Portfolio expansion: official project identities and richer content */
+.brand-art{background-color:#0c0d0e}
+.project-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(68%,300px);height:min(58%,220px);object-fit:contain;z-index:1;filter:drop-shadow(0 12px 24px #0008)}
+.libreta-logo{width:min(62%,260px);height:min(55%,210px);mix-blend-mode:screen}
+.sounwd-logo{width:min(68%,290px);height:min(65%,245px)}
+.olv-logo{width:min(78%,340px);height:min(68%,250px)}
+.art-libreta{background:radial-gradient(circle at 50% 50%,#311116,#110d0e 70%)}
+.art-sounwd{background:radial-gradient(circle at 50% 50%,#272727,#0b0b0b 72%)}
+.art-olv{background:radial-gradient(circle at 50% 50%,#261019,#0d1117 72%)}
+.project-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:2px}
+.project-actions .repo-link{margin-top:0}
+.projects-footnote{font-size:11px;color:#77716d;margin:22px 0 0}
+.tech-logos{margin-top:34px;padding:24px;border:1px solid var(--line);background:#101010}
+.tech-logos .eyebrow{margin-bottom:18px}
+.tech-logos img{display:block;max-width:100%;height:auto;margin-inline:auto}
+.lab-note{margin-top:22px!important;padding:15px 17px;border-left:2px solid var(--red);background:#151313;color:#b2a8a4!important;font-size:12px!important}
+@media(max-width:680px){.project-logo{width:min(76%,280px);height:min(58%,200px)}.tech-logos{padding:18px 12px}.tech-logos img{width:100%}.project-actions{gap:14px}}
