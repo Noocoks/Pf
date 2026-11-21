@@ -4357,3 +4357,22 @@ body {
     font-size:clamp(30px,8vw,38px);
   }
 }
+
+
+/* Reduce the vertical whitespace of the entire 05 — CONTACTO section */
+#contacto.section {
+  padding-top:42px;
+  padding-bottom:42px;
+}
+@media(max-width:800px) {
+  #contacto.section {
+    padding-top:34px;
+    padding-bottom:34px;
+  }
+}
+@media(max-width:520px) {
+  #contacto.section {
+    padding-top:28px;
+    padding-bottom:28px;
+  }
+}
