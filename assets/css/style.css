@@ -171,3 +171,13 @@ main{position:relative;z-index:1}.site-header,.site-footer{z-index:2}
 .scroll-progress span{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#7d1d28,#d24a52,#d78b8f);box-shadow:0 0 14px #c52b4388}
 @media(max-width:680px){.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{filter:blur(42px)}}
 @media(prefers-reduced-motion:reduce){.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{animation:none}.scroll-atmosphere .atmosphere-layer{transition:none}.scroll-progress{display:none}}
+
+/* Make the animated atmosphere genuinely visible behind the whole page */
+.intro-strip{background:rgba(14,14,14,.48);backdrop-filter:blur(2px)}
+.section-dark{background:rgba(16,16,16,.46);backdrop-filter:blur(1.5px)}
+.project-card,.stack-card,.tech-logos,.contact-panel{background-color:rgba(18,18,18,.78)}
+/* A continuous slow-moving aurora sits beneath the scroll-controlled color scenes */
+.scroll-atmosphere::after{content:"";position:absolute;z-index:1;inset:-28%;pointer-events:none;background:radial-gradient(ellipse at 18% 48%,#9f1e3440 0%,transparent 34%),radial-gradient(ellipse at 78% 28%,#65304b38 0%,transparent 32%),radial-gradient(ellipse at 65% 82%,#263c4930 0%,transparent 36%);filter:blur(42px);transform:translate3d(0,0,0);animation:aurora-current 38s cubic-bezier(.45,0,.55,1) infinite alternate;will-change:transform,background-position}
+@keyframes aurora-current{0%{transform:translate3d(-3.5%,-2%,0) scale(1) rotate(-2deg)}25%{transform:translate3d(2%,3%,0) scale(1.08) rotate(1deg)}55%{transform:translate3d(4%,-2.5%,0) scale(1.03) rotate(3deg)}80%{transform:translate3d(-2%,4%,0) scale(1.1) rotate(-1deg)}100%{transform:translate3d(3%,-3%,0) scale(1.04) rotate(2deg)}}
+@media(max-width:680px){.scroll-atmosphere::after{filter:blur(30px);animation-duration:48s}}
+@media(prefers-reduced-motion:reduce){.scroll-atmosphere::after{animation:none}}
