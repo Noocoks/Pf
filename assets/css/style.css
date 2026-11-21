@@ -147,3 +147,22 @@ a,button{transition-duration:var(--motion-base)}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
  .motion-ready .reveal,.motion-ready .reveal.reveal-left,.motion-ready .reveal.reveal-right{opacity:1;transform:none;transition:none}
 }
+
+/* Scroll atmosphere — a subtle ambient color journey between sections */
+body{isolation:isolate;background:#090909}
+.scroll-atmosphere{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:#090909}
+.scroll-atmosphere .atmosphere-layer{position:absolute;inset:-12%;opacity:0;transition:opacity 1200ms cubic-bezier(.22,1,.36,1);will-change:opacity}
+.scroll-atmosphere .atmosphere-layer::before,.scroll-atmosphere .atmosphere-layer::after{content:"";position:absolute;inset:0}
+.scroll-atmosphere .atmosphere-layer::before{background:radial-gradient(ellipse at 18% 24%,var(--glow-a),transparent 48%),radial-gradient(ellipse at 82% 76%,var(--glow-b),transparent 45%)}
+.scroll-atmosphere .atmosphere-layer::after{background:linear-gradient(115deg,transparent 20%,#09090955 52%,transparent 82%)}
+.scroll-atmosphere .scene-hero{--glow-a:#57151d55;--glow-b:#29202b35}
+.scroll-atmosphere .scene-profile{--glow-a:#3e161d45;--glow-b:#28242b35}
+.scroll-atmosphere .scene-projects{--glow-a:#751b254c;--glow-b:#29161e42}
+.scroll-atmosphere .scene-stack{--glow-a:#252d3c40;--glow-b:#4a1a2340}
+.scroll-atmosphere .scene-lab{--glow-a:#173d3b38;--glow-b:#38192345}
+.scroll-atmosphere .scene-contact{--glow-a:#65192355;--glow-b:#34202d48}
+.scroll-atmosphere .atmosphere-layer.is-active{opacity:1}
+.scroll-atmosphere .atmosphere-grain{position:absolute;inset:0;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+.scroll-progress{position:fixed;z-index:1001;top:0;left:0;height:2px;width:100%;pointer-events:none;background:#ffffff0a}
+.scroll-progress span{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#7d1d28,#d24a52,#a62a35);box-shadow:0 0 12px #b52b3b88}
+@media(prefers-reduced-motion:reduce){.scroll-atmosphere .atmosphere-layer{transition:none}.scroll-progress{display:none}}
