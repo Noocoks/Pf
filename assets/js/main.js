@@ -207,4 +207,62 @@
     }
     paintScenes();
   }
+
+  // Matrix data rain: decorative only, throttled and disabled for reduced-motion users.
+  if (!reduceMotion && !/Mobi|Android/i.test(navigator.userAgent) || (!reduceMotion && window.innerWidth > 680)) {
+    const atmosphere = document.querySelector('.scroll-atmosphere');
+    if (atmosphere) {
+      const canvas = document.createElement('canvas');
+      canvas.className = 'matrix-rain';
+      canvas.setAttribute('aria-hidden', 'true');
+      atmosphere.appendChild(canvas);
+      const context = canvas.getContext('2d', { alpha: true });
+      if (context) {
+        const glyphs = 'アカサタナハマヤラワ0123456789ABCDEF<>/{}[]';
+        const fontSize = 13;
+        let columns = [];
+        let width = 0;
+        let height = 0;
+        let lastFrame = 0;
+        let animationFrame = 0;
+        const resizeMatrix = () => {
+          const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.floor(width * ratio);
+          canvas.height = Math.floor(height * ratio);
+          canvas.style.width = width + 'px';
+          canvas.style.height = height + 'px';
+          context.setTransform(ratio, 0, 0, ratio, 0, 0);
+          columns = Array.from({ length: Math.ceil(width / fontSize) }, () => Math.random() * -height / fontSize);
+          context.font = fontSize + 'px monospace';
+        };
+        const drawMatrix = (time) => {
+          animationFrame = window.requestAnimationFrame(drawMatrix);
+          if (time - lastFrame < 42 || document.hidden) return;
+          lastFrame = time;
+          context.fillStyle = 'rgba(5, 8, 8, 0.105)';
+          context.fillRect(0, 0, width, height);
+          columns.forEach((position, index) => {
+            const x = index * fontSize;
+            const y = position * fontSize;
+            const hot = index % 11 === 0;
+            context.fillStyle = hot ? 'rgba(224, 54, 73, 0.76)' : 'rgba(75, 210, 145, 0.52)';
+            context.shadowBlur = hot ? 12 : 7;
+            context.shadowColor = hot ? 'rgba(213, 38, 59, .45)' : 'rgba(55, 210, 135, .28)';
+            context.fillText(glyphs[Math.floor(Math.random() * glyphs.length)], x, y);
+            context.shadowBlur = 0;
+            if (y > height && Math.random() > 0.978) columns[index] = 0;
+            else columns[index] += hot ? 0.82 : 0.58;
+          });
+        };
+        resizeMatrix();
+        animationFrame = window.requestAnimationFrame(drawMatrix);
+        window.addEventListener('resize', resizeMatrix, { passive: true });
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden && !animationFrame) animationFrame = window.requestAnimationFrame(drawMatrix);
+        });
+      }
+    }
+  }
 })();
