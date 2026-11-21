@@ -137,27 +137,66 @@
     });
   }
 
-  // Progressive reveal; content remains visible if observation is unavailable.
-  const revealTargets = document.querySelectorAll(
-    '.section-heading, .about-main, .about-facts, .project-card, .stack-card, .tech-logos, .lab-copy, .contact-panel, .intro-strip'
-  );
-  if (!reduceMotion && 'IntersectionObserver' in window && revealTargets.length) {
-    document.documentElement.classList.add('motion-ready');
-    revealTargets.forEach((element, index) => {
-      element.classList.add('reveal');
-      if (element.classList.contains('about-facts') || element.classList.contains('lab-copy')) element.classList.add('reveal-right');
-      if (element.classList.contains('about-main')) element.classList.add('reveal-left');
-      if (element.classList.contains('stack-card') || element.classList.contains('project-card')) {
-        element.style.setProperty('--reveal-delay', (index % 4) * 75 + 'ms');
-      }
-    });
-    const observer = new IntersectionObserver((entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        currentObserver.unobserve(entry.target);
+  // Scroll choreography: every scene is scrubbed by the real scroll position.
+  // Unlike one-shot reveal observers, this runs in both directions and also when
+  // the user drags the scrollbar thumb.
+  if (!reduceMotion) {
+    const sceneDefinitions = [
+      { selector: '.hero', content: '.hero-copy, .hero-visual, .hero-index' },
+      { selector: '.intro-strip', content: '.strip-inner' },
+      { selector: '#sobre-mi', content: '.section-heading, .about-grid' },
+      { selector: '#proyectos', content: '.section-heading, .project-list, .projects-footnote, .support-repos' },
+      { selector: '#especialidades', content: '.section-heading, .stack-grid, .tech-logos' },
+      { selector: '#laboratorio', content: '.lab-grid' },
+      { selector: '#contacto', content: '.contact-panel' }
+    ];
+    const scenes = sceneDefinitions.map(({ selector, content }) => {
+      const element = document.querySelector(selector);
+      if (!element) return null;
+      element.classList.add('scroll-scene');
+      const targets = Array.from(element.querySelectorAll(content));
+      targets.forEach((target, index) => {
+        target.classList.add('scroll-scene-content');
+        target.style.setProperty('--scene-order', String(index));
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -45px 0px' });
-    revealTargets.forEach((element) => observer.observe(element));
+      return { element, targets };
+    }).filter(Boolean);
+
+    let sceneFrame = 0;
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const smoothstep = (value) => {
+      const t = clamp(value, 0, 1);
+      return t * t * (3 - 2 * t);
+    };
+    const paintScenes = () => {
+      const viewport = window.innerHeight;
+      scenes.forEach(({ element, targets }) => {
+        const rect = element.getBoundingClientRect();
+        const travel = Math.max(1, rect.height + viewport * 0.72);
+        const progress = clamp((viewport * 0.86 - rect.top) / travel, 0, 1);
+        const enter = smoothstep(progress / 0.2);
+        const leave = smoothstep((1 - progress) / 0.2);
+        const visibility = Math.min(enter, leave);
+        const shift = (1 - visibility) * 54;
+        const scale = 0.975 + visibility * 0.025;
+        targets.forEach((target) => {
+          target.style.setProperty('--scene-opacity', visibility.toFixed(3));
+          target.style.setProperty('--scene-shift', shift.toFixed(1) + 'px');
+          target.style.setProperty('--scene-scale', scale.toFixed(4));
+        });
+        element.style.setProperty('--scene-progress', progress.toFixed(4));
+      });
+      sceneFrame = 0;
+    };
+    const scheduleScenes = () => {
+      if (!sceneFrame) sceneFrame = requestAnimationFrame(paintScenes);
+    };
+    window.addEventListener('scroll', scheduleScenes, { passive: true });
+    window.addEventListener('resize', scheduleScenes, { passive: true });
+    if ('ResizeObserver' in window) {
+      const sceneObserver = new ResizeObserver(scheduleScenes);
+      scenes.forEach(({ element }) => sceneObserver.observe(element));
+    }
+    paintScenes();
   }
 })();
