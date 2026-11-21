@@ -24,3 +24,80 @@
 @media(max-width:680px){.project-logo{width:min(76%,280px);height:min(58%,200px)}.tech-logos{padding:18px 12px}.tech-logos img{width:100%}.project-actions{gap:14px}}
 
 .support-repos{margin-top:34px;padding:20px 22px;border:1px solid var(--line);background:#111}.support-repos>div{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:12px}.support-repos a{font-size:11px;color:#c8bfbb;text-decoration:underline;text-decoration-color:#55494a;text-underline-offset:4px}.support-repos a:hover{color:#fff}
+
+/* Spacing refinement — expanded portfolio sections */
+.section-heading{margin-bottom:58px}
+.section-description{max-width:650px;line-height:1.85;margin-top:18px}
+.about-grid{gap:clamp(52px,8vw,112px)}
+.about-main{display:flex;flex-direction:column;gap:18px}
+.about-main>p{margin:0}
+.about-facts{padding-top:5px}
+.fact{padding:23px 0;gap:20px}
+.project-list{display:grid;gap:28px}
+.project-card{border-radius:2px}
+.project-art{min-height:340px}
+.project-content{padding:clamp(30px,3.5vw,48px);gap:0}
+.project-content h3{margin:20px 0 13px}
+.project-content>p{margin:0 0 17px;line-height:1.95}
+.project-content .tag-list{margin:5px 0 25px;gap:8px}
+.project-actions{gap:24px;padding-top:2px}
+.projects-footnote{line-height:1.8;margin-top:28px;max-width:850px}
+.support-repos{margin-top:42px;padding:24px 26px}
+.support-repos>div{gap:16px 32px;margin-top:16px}
+.stack-grid{gap:16px}
+.stack-card{padding:25px;min-height:300px}
+.stack-icon{margin:34px 0 20px}
+.stack-card h3{margin-bottom:12px}
+.stack-card p{line-height:1.8;min-height:70px}
+.stack-card .tag-list{gap:7px 8px;margin-top:19px}
+.tech-logos{margin-top:44px;padding:28px 30px}
+.tech-logos .eyebrow{margin-bottom:24px}
+.lab-grid{gap:clamp(48px,8vw,100px)}
+.lab-copy{display:flex;flex-direction:column;gap:17px}
+.lab-copy>p{margin:0}
+.lab-points{margin-top:16px}
+.lab-points span{padding:17px 0;gap:26px;line-height:1.5}
+.lab-note{margin-top:4px!important;line-height:1.85!important;padding:18px 20px}
+.contact-panel{gap:clamp(30px,5vw,70px)}
+@media(max-width:900px){
+ .project-card{grid-template-columns:.85fr 1.15fr}
+ .project-art{min-height:310px}
+ .project-content{padding:28px}
+ .stack-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .stack-card{min-height:285px}
+}
+@media(max-width:680px){
+ .section-heading{margin-bottom:38px}
+ .about-grid{gap:36px}
+ .about-main{gap:15px}
+ .fact{padding:17px 0;gap:12px}
+ .project-list{gap:20px}
+ .project-card{grid-template-columns:1fr}
+ .project-art{min-height:260px}
+ .project-content{padding:27px 23px;gap:0}
+ .project-content h3{margin:17px 0 11px}
+ .project-content>p{margin-bottom:15px;line-height:1.85}
+ .project-content .tag-list{margin:5px 0 21px}
+ .project-actions{gap:16px}
+ .projects-footnote{margin-top:21px}
+ .support-repos{margin-top:30px;padding:19px}
+ .support-repos>div{flex-direction:column;gap:13px}
+ .stack-grid{gap:11px}
+ .stack-card{padding:19px;min-height:290px}
+ .stack-icon{margin:25px 0 15px}
+ .stack-card p{min-height:0;margin-bottom:12px}
+ .stack-card .tag-list{margin-top:15px}
+ .tech-logos{margin-top:30px;padding:19px 14px}
+ .tech-logos .eyebrow{margin-bottom:17px}
+ .lab-grid{gap:30px}
+ .lab-copy{gap:14px}
+ .lab-points{margin-top:8px}
+ .lab-points span{padding:14px 0;gap:16px}
+ .lab-note{margin-top:2px!important;padding:15px}
+}
+@media(max-width:390px){
+ .stack-grid{grid-template-columns:1fr;gap:12px}
+ .stack-card{min-height:0;padding:20px}
+ .stack-icon{margin:20px 0 12px}
+ .stack-card p{margin-bottom:10px}
+}
