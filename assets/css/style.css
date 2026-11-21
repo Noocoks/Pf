@@ -4426,3 +4426,30 @@ html::-webkit-scrollbar-thumb:hover {
 html::-webkit-scrollbar-corner {
   background:#0b0c0e;
 }
+
+
+/* Translucent section surfaces — keep the global atmosphere visible */
+.section-dark {
+  background:linear-gradient(180deg,rgba(15,16,20,.76),rgba(9,10,13,.72));
+  border-block-color:rgba(255,255,255,.065);
+  -webkit-backdrop-filter:blur(9px) saturate(112%);
+  backdrop-filter:blur(9px) saturate(112%);
+}
+.section-lab {
+  background:
+    radial-gradient(ellipse at 12% 50%,rgba(111,18,36,.20),transparent 44%),
+    linear-gradient(120deg,rgba(13,14,17,.78),rgba(17,17,21,.70) 55%,rgba(9,10,12,.76));
+  border-block-color:rgba(255,255,255,.065);
+  -webkit-backdrop-filter:blur(9px) saturate(112%);
+  backdrop-filter:blur(9px) saturate(112%);
+}
+.intro-strip {
+  background:linear-gradient(90deg,rgba(71,15,25,.20),rgba(15,16,19,.62),rgba(71,15,25,.16));
+  -webkit-backdrop-filter:blur(8px) saturate(112%);
+  backdrop-filter:blur(8px) saturate(112%);
+}
+@media(prefers-reduced-transparency:reduce) {
+  .section-dark { background:rgba(12,13,16,.94); }
+  .section-lab { background:rgba(12,13,16,.94); }
+  .intro-strip { background:rgba(14,14,17,.94); }
+}
