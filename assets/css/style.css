@@ -4271,3 +4271,12 @@ body {
 @media(prefers-reduced-motion:reduce) {
   .hero-visual:after { animation:none!important; }
 }
+
+
+/* Keep the red monogram dot optically attached to the N */
+.hero-monogram strong span {
+  position:relative;
+  display:inline-block;
+  left:-.075em;
+  margin-right:-.075em;
+}
