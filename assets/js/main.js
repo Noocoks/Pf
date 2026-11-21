@@ -4,7 +4,15 @@
   const year = document.querySelector('#year');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (year) year.textContent = String(new Date().getFullYear());
+  const currentYear = new Date().getFullYear();
+  const shortYear = String(currentYear).slice(-2);
+  if (year) year.textContent = String(currentYear);
+  document.querySelectorAll('[data-current-year]').forEach((node) => {
+    node.textContent = String(currentYear);
+  });
+  document.querySelectorAll('[data-year-short]').forEach((node) => {
+    node.textContent = shortYear;
+  });
 
   if (toggle && nav) {
     const closeMenu = () => {
