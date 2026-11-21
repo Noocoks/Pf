@@ -4076,3 +4076,26 @@ body {
 @media(prefers-reduced-motion:reduce) {
   .project-logo { transition:none!important; }
 }
+
+
+/* Center project marks inside their artwork area */
+.project-art.brand-art {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.project-art.brand-art .project-logo {
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:0;
+  transform:translate(-50%,-50%) scale(1);
+  max-width:72%;
+  max-height:62%;
+  object-fit:contain;
+}
+.project-art.brand-art .project-card:hover .project-logo,
+.project-card:hover .project-art.brand-art .project-logo {
+  transform:translate(-50%,-50%) scale(1.075) rotate(-1.5deg);
+}
