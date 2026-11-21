@@ -164,7 +164,7 @@ body{background:#08090b;isolation:isolate}
 .scroll-atmosphere .scene-lab{--glow-a:#1e625a65;--glow-b:#52243d70;--glow-c:#173d4b70;--glow-d:#8a1b3150}
 .scroll-atmosphere .scene-contact{--glow-a:#a51b3278;--glow-b:#4a234d70;--glow-c:#77182d65;--glow-d:#24203a65}
 .scroll-atmosphere .atmosphere-grain{position:absolute;inset:0;z-index:4;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
-body>*:not(.scroll-atmosphere){position:relative;z-index:1}
+main{position:relative;z-index:1}.site-header,.site-footer{z-index:2}
 @keyframes ambient-drift-a{0%{transform:translate3d(-5%,-3%,0) rotate(-8deg) scale(1)}50%{transform:translate3d(4%,5%,0) rotate(8deg) scale(1.14)}100%{transform:translate3d(-2%,7%,0) rotate(-3deg) scale(1.06)}}
 @keyframes ambient-drift-b{0%{transform:translate3d(5%,4%,0) rotate(9deg) scale(1.1)}50%{transform:translate3d(-6%,-4%,0) rotate(-7deg) scale(.96)}100%{transform:translate3d(3%,-6%,0) rotate(5deg) scale(1.16)}}
 .scroll-progress{position:fixed;z-index:1001;top:0;left:0;height:2px;width:100%;pointer-events:none;background:#ffffff0a}
