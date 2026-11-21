@@ -22,3 +22,5 @@
 .tech-logos img{display:block;max-width:100%;height:auto;margin-inline:auto}
 .lab-note{margin-top:22px!important;padding:15px 17px;border-left:2px solid var(--red);background:#151313;color:#b2a8a4!important;font-size:12px!important}
 @media(max-width:680px){.project-logo{width:min(76%,280px);height:min(58%,200px)}.tech-logos{padding:18px 12px}.tech-logos img{width:100%}.project-actions{gap:14px}}
+
+.support-repos{margin-top:34px;padding:20px 22px;border:1px solid var(--line);background:#111}.support-repos>div{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:12px}.support-repos a{font-size:11px;color:#c8bfbb;text-decoration:underline;text-decoration-color:#55494a;text-underline-offset:4px}.support-repos a:hover{color:#fff}
