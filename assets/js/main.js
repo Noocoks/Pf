@@ -37,16 +37,23 @@
     });
   });
 
-  // Ambient background layers fade between the page's visual chapters.
-  if (!reduceMotion && 'IntersectionObserver' in window) {
+  // Full-screen animated atmosphere. Adjacent color fields crossfade continuously
+  // according to the viewport's position between section centers (wheel or scrollbar).
+  {
+    const scenes = [
+      ['inicio', 'hero'], ['sobre-mi', 'profile'], ['proyectos', 'projects'],
+      ['especialidades', 'stack'], ['laboratorio', 'lab'], ['contacto', 'contact']
+    ].map(([id, name]) => ({ element: document.getElementById(id), name }))
+      .filter((scene) => scene.element);
+
     const atmosphere = document.createElement('div');
     atmosphere.className = 'scroll-atmosphere';
     atmosphere.setAttribute('aria-hidden', 'true');
-    const scenes = ['hero', 'profile', 'projects', 'stack', 'lab', 'contact'];
-    scenes.forEach((scene) => {
+    const layers = scenes.map(({ name }) => {
       const layer = document.createElement('span');
-      layer.className = 'atmosphere-layer scene-' + scene + (scene === 'hero' ? ' is-active' : '');
+      layer.className = 'atmosphere-layer scene-' + name;
       atmosphere.appendChild(layer);
+      return layer;
     });
     const grain = document.createElement('span');
     grain.className = 'atmosphere-grain';
@@ -59,34 +66,54 @@
     progress.innerHTML = '<span></span>';
     document.body.appendChild(progress);
     const progressBar = progress.firstElementChild;
+
+    let anchors = [];
     let ticking = false;
-    const updateProgress = () => {
+    const measure = () => {
+      anchors = scenes.map(({ element }) => element.getBoundingClientRect().top + window.scrollY + element.offsetHeight * 0.5);
+      render();
+    };
+    const render = () => {
+      const focus = window.scrollY + window.innerHeight * 0.48;
+      if (layers.length === 1) {
+        layers[0].style.opacity = '1';
+      } else if (layers.length > 1) {
+        let next = anchors.findIndex((point) => point >= focus);
+        if (next < 0) next = anchors.length - 1;
+        const previous = Math.max(0, next - 1);
+        const distance = Math.max(1, anchors[next] - anchors[previous]);
+        const blend = next === previous ? 0 : Math.min(1, Math.max(0, (focus - anchors[previous]) / distance));
+        layers.forEach((layer, index) => {
+          let opacity = 0;
+          if (index === previous) opacity = 1 - blend;
+          if (index === next) opacity = blend;
+          if (focus <= anchors[0]) opacity = index === 0 ? 1 : 0;
+          if (focus >= anchors[anchors.length - 1]) opacity = index === anchors.length - 1 ? 1 : 0;
+          layer.style.opacity = String(opacity);
+        });
+      }
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const amount = maxScroll > 0 ? window.scrollY / maxScroll : 0;
       progressBar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, amount)) + ')';
       ticking = false;
     };
-    window.addEventListener('scroll', () => {
-      if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
-    }, { passive: true });
-    updateProgress();
-
-    const sceneTargets = [
-      ['inicio', 'hero'], ['sobre-mi', 'profile'], ['proyectos', 'projects'],
-      ['especialidades', 'stack'], ['laboratorio', 'lab'], ['contacto', 'contact']
-    ].map(([id, scene]) => ({ element: document.getElementById(id), scene })).filter((item) => item.element);
-
-    const sceneObserver = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      const match = sceneTargets.find((item) => item.element === visible.target);
-      if (!match) return;
-      atmosphere.querySelectorAll('.atmosphere-layer').forEach((layer) => {
-        layer.classList.toggle('is-active', layer.classList.contains('scene-' + match.scene));
-      });
-    }, { threshold: [0.12, 0.25, 0.4, 0.6], rootMargin: '-18% 0px -28% 0px' });
-    sceneTargets.forEach(({ element }) => sceneObserver.observe(element));
+    const requestRender = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(render);
+        ticking = true;
+      }
+    };
+    if (reduceMotion) {
+      layers.forEach((layer, index) => { layer.style.opacity = index === 0 ? '1' : '0'; });
+    } else {
+      window.addEventListener('scroll', requestRender, { passive: true });
+    }
+    window.addEventListener('resize', measure, { passive: true });
+    measure();
+    if ('ResizeObserver' in window) {
+      const pageObserver = new ResizeObserver(measure);
+      scenes.forEach(({ element }) => pageObserver.observe(element));
+    }
   }
 
   // Progressive reveal; content remains visible if observation is unavailable.
