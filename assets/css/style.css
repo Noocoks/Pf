@@ -4400,3 +4400,29 @@ body {
   position:relative;
   z-index:1;
 }
+
+
+/* Custom scrollbar — dark graphite track with a restrained red accent */
+html {
+  scrollbar-width:thin;
+  scrollbar-color:#76232d #0b0c0e;
+  scrollbar-gutter:stable;
+}
+html::-webkit-scrollbar {
+  width:10px;
+}
+html::-webkit-scrollbar-track {
+  background:#0b0c0e;
+  border-left:1px solid rgba(255,255,255,.045);
+}
+html::-webkit-scrollbar-thumb {
+  background:linear-gradient(180deg,#a52a38 0%,#64202a 58%,#35151b 100%);
+  border:2px solid #0b0c0e;
+  border-radius:10px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background:linear-gradient(180deg,#d13b4b 0%,#8e2634 100%);
+}
+html::-webkit-scrollbar-corner {
+  background:#0b0c0e;
+}
