@@ -4376,3 +4376,27 @@ body {
     padding-bottom:28px;
   }
 }
+
+
+/* Keep the contact watermark decorative and out of the layout */
+#contacto .contact-panel {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+#contacto .contact-watermark {
+  position:absolute;
+  z-index:0;
+  top:50%;
+  right:7%;
+  transform:translateY(-50%);
+  font-size:clamp(120px,18vw,190px);
+  line-height:.8;
+  letter-spacing:-.15em;
+  pointer-events:none;
+  user-select:none;
+}
+#contacto .contact-panel > div:not(.contact-watermark) {
+  position:relative;
+  z-index:1;
+}
