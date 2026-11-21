@@ -4314,3 +4314,46 @@ body {
     font-size:clamp(32px,8.5vw,40px);
   }
 }
+
+
+/* FINAL CONTACT 05 + HERO RIBBON POSITION */
+.hero-visual-ribbon {
+  top:50%;
+  right:14px;
+  transform:rotate(-90deg) translateX(50%);
+  transform-origin:right center;
+}
+#contacto .contact-panel {
+  width:min(100%, 900px);
+  min-height:190px;
+  margin-inline:auto;
+  padding:25px 32px;
+  gap:20px;
+}
+#contacto .contact-panel h2 {
+  font-size:clamp(32px,3.5vw,42px);
+  margin-bottom:12px;
+}
+#contacto .contact-copy {
+  max-width:390px;
+  font-size:13px;
+  line-height:1.65;
+}
+#contacto .contact-actions {
+  gap:12px;
+}
+@media(max-width:800px) {
+  #contacto .contact-panel {
+    min-height:0;
+    padding:25px 24px;
+    gap:18px;
+  }
+}
+@media(max-width:520px) {
+  #contacto .contact-panel {
+    padding:22px 19px;
+  }
+  #contacto .contact-panel h2 {
+    font-size:clamp(30px,8vw,38px);
+  }
+}
