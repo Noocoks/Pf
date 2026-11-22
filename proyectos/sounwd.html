@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Ficha técnica de SOUNWD: aplicación gráfica para guardar audio de enlaces compatibles en escritorio y Android.">
+  <title>SOUNWD — Ficha técnica | Noocoks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/projects.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="project-detail-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html" aria-label="Noocoks, inicio"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a><nav class="main-nav detail-nav" aria-label="Navegación principal"><a href="../index.html#sobre-mi">Perfil</a><a href="../index.html#proyectos">Proyectos</a><a href="../index.html#especialidades">Especialidades</a><a href="../index.html#laboratorio">Laboratorio</a><a href="../cv.html">CV <span>↗</span></a></nav></div></header>
+  <main id="contenido">
+    <section class="detail-hero detail-sounwd"><div class="container">
+      <div class="detail-breadcrumb"><a href="../index.html#proyectos">← Volver a proyectos</a><span>PROYECTO 02 / 03</span></div>
+      <div class="detail-hero-grid"><div>
+        <p class="eyebrow"><span class="status-dot"></span> SOFTWARE MULTIPLATAFORMA</p><h1>SOUNWD<span class="accent">.</span></h1>
+        <p class="detail-lead">Una aplicación gráfica que convierte el proceso de guardar audio de enlaces compatibles en una tarea sencilla: pegar, elegir formato y destino, y guardar.</p>
+        <div class="detail-actions"><a class="button button-primary" href="https://github.com/Noocoks/SOUNWD/actions" target="_blank" rel="noopener noreferrer">Ver compilaciones <span>↗</span></a><a class="detail-text-link" href="https://github.com/Noocoks/SOUNWD" target="_blank" rel="noopener noreferrer">Código fuente ↗</a></div>
+      </div><div class="detail-brand-panel"><img src="https://raw.githubusercontent.com/Noocoks/SOUNWD/main/icon/sounwd-master.png" alt="Logotipo maestro original de SOUNWD"><span>YOUR SOUND · YOUR MOMENTS</span><small>CROSS-PLATFORM AUDIO APP / 002</small></div></div>
+      <div class="detail-meta"><span><b>TIPO</b> Aplicación gráfica</span><span><b>ESTADO</b> En desarrollo</span><span><b>PLATAFORMAS</b> Windows · Linux · Android</span></div>
+    </div></section>
+    <section class="container detail-body"><div class="detail-main-column">
+      <section class="detail-section"><p class="eyebrow">01 — PROPÓSITO</p><h2>Una experiencia sencilla sobre una <span class="muted">herramienta potente.</span></h2>
+        <p>SOUNWD utiliza yt-dlp para obtener audio de enlaces compatibles de YouTube y YouTube Music. La interfaz está pensada para que una persona no técnica pueda completar el flujo habitual sin tener que utilizar una terminal ni conocer los parámetros internos de yt-dlp.</p>
+        <p>El proyecto prioriza una experiencia de dos pasos visibles —configurar lo básico y guardar—, sin ocultar la posibilidad de ajustar opciones avanzadas cuando el usuario las necesita.</p>
+        <p class="detail-caution">Utilizar únicamente con contenido que se tenga derecho a descargar y respetando los derechos de autor, las licencias y las condiciones de cada plataforma.</p>
+      </section>
+      <section class="detail-section"><p class="eyebrow">02 — FUNCIONALIDADES</p><h2>Control básico. Opciones <span class="muted">avanzadas cuando hacen falta.</span></h2>
+        <div class="detail-feature-grid">
+          <article><span>01</span><h3>Flujo principal directo</h3><p>Pegar un enlace, elegir formato y carpeta de destino, y guardar el audio.</p></article>
+          <article><span>02</span><h3>Formatos y calidad</h3><p>En escritorio permite MP3, M4A, FLAC, OPUS y WAV, con preferencias de calidad.</p></article>
+          <article><span>03</span><h3>Opciones yt-dlp</h3><p>Parámetros avanzados opcionales para selector de formato, plantilla, listas, velocidad, reintentos y subtítulos.</p></article>
+          <article><span>04</span><h3>Preferencias persistentes</h3><p>Recuerda opciones y ofrece carpeta Descargas como destino inicial.</p></article>
+          <article><span>05</span><h3>Interfaz de progreso</h3><p>Indicadores de avance y mensajes orientados a que el usuario entienda el estado de la tarea.</p></article>
+          <article><span>06</span><h3>Multiplataforma</h3><p>Compilaciones de escritorio para Windows y Linux; versión Android en desarrollo.</p></article>
+        </div>
+      </section>
+      <section class="detail-section"><p class="eyebrow">03 — ARQUITECTURA</p><h2>Una base Python con <span class="muted">interfaces por entorno.</span></h2>
+        <p>El repositorio separa la interfaz gráfica, la interfaz de terminal, la aplicación Android y los recursos de marca. yt-dlp se encarga de la obtención del contenido; los workflows automatizan las compilaciones y validaciones.</p>
+        <div class="architecture-list">
+          <div><b><code>src/gui.py</code></b><span>Interfaz gráfica de escritorio.</span></div>
+          <div><b><code>src/cli.py</code></b><span>Interfaz de línea de comandos.</span></div>
+          <div><b><code>android/main.py</code></b><span>Aplicación móvil basada en Kivy.</span></div>
+          <div><b><code>bootstrap.py</code></b><span>Preparación de dependencias para desarrollo.</span></div>
+          <div><b><code>assets/</code></b><span>Imagen maestra y generación de recursos de marca para los distintos sistemas.</span></div>
+          <div><b><code>.github/workflows/</code></b><span>Compilación de escritorio, validaciones y workflow Android.</span></div>
+        </div>
+        <pre class="detail-code"><code>Interfaz de usuario
+       │
+       ▼
+   SOUNWD / Python
+       │
+       ▼
+      yt-dlp
+       │
+       ▼
+Archivo de audio
+       │
+       ▼
+Carpeta elegida por el usuario
+
+GitHub Actions → pruebas y compilaciones</code></pre>
+      </section>
+      <section class="detail-section"><p class="eyebrow">04 — SEGURIDAD Y DECISIONES</p><h2>Reducir riesgos desde <span class="muted">el flujo de trabajo.</span></h2>
+        <ul class="detail-bullets">
+          <li>Valida enlaces HTTPS de YouTube y restringe las plantillas de salida.</li>
+          <li>Evita sobrescribir archivos existentes.</li>
+          <li>En Android, mantiene las descargas en almacenamiento privado y aplica límites de tamaño y espacio antes de exportarlas.</li>
+          <li>La integración de escritorio incorpora Deno y componentes EJS requeridos por yt-dlp para resolver retos JavaScript de YouTube.</li>
+          <li>CI ejecuta pruebas de regresión, auditoría de dependencias, CodeQL y OSV-Scanner.</li>
+        </ul>
+        <p>Estas medidas reducen riesgos, pero no convierten la aplicación en invulnerable. El repositorio mantiene documentación específica en <a href="https://github.com/Noocoks/SOUNWD/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">SECURITY.md</a> y sobre Android en <a href="https://github.com/Noocoks/SOUNWD/blob/main/docs/ANDROID_SECURITY.md" target="_blank" rel="noopener noreferrer">ANDROID_SECURITY.md</a>.</p>
+      </section>
+      <section class="detail-section"><p class="eyebrow">05 — ESTADO Y EVOLUCIÓN</p><h2>Escritorio operativo; Android <span class="muted">en desarrollo.</span></h2>
+        <p>El proyecto documenta compilaciones automatizadas para Windows y Linux. Android cuenta con un flujo de compilación APK, pero sigue en desarrollo y no debe interpretarse como una versión con las mismas capacidades que escritorio.</p>
+        <div class="detail-status-note"><span class="status-dot"></span><div><b>Limitación conocida en Android</b><p>La versión móvil conserva el formato disponible en origen. La conversión a MP3, FLAC o WAV mediante FFmpeg todavía no está integrada; tampoco están disponibles allí la incrustación de portada y metadatos.</p></div></div>
+        <p>La evolución se centra en consolidar una experiencia coherente entre plataformas, mantener la compatibilidad de las compilaciones y cerrar las diferencias funcionales de Android sin comprometer la sencillez de la interfaz.</p>
+      </section>
+    </div><aside class="detail-aside">
+      <div class="aside-block"><span class="eyebrow">TECNOLOGÍAS</span><div class="tag-list"><span>Python</span><span>Kivy</span><span>yt-dlp</span><span>Deno</span><span>FFmpeg</span><span>GitHub Actions</span></div></div>
+      <div class="aside-block"><span class="eyebrow">PLATAFORMAS</span><ul><li>Windows — escritorio</li><li>Linux — escritorio</li><li>Android — en desarrollo</li></ul></div>
+      <div class="aside-block"><span class="eyebrow">RECURSOS</span><a href="https://github.com/Noocoks/SOUNWD/actions" target="_blank" rel="noopener noreferrer">Compilaciones y pruebas ↗</a><a href="https://github.com/Noocoks/SOUNWD/blob/main/README.md" target="_blank" rel="noopener noreferrer">README técnico ↗</a><a href="https://github.com/Noocoks/SOUNWD/blob/main/docs/ANDROID_SECURITY.md" target="_blank" rel="noopener noreferrer">Seguridad Android ↗</a></div>
+    </aside></section>
+    <section class="container detail-next"><span class="eyebrow">SIGUIENTE PROYECTO</span><a href="olv.html"><span>OLV — Open Live Video</span><b>Explorar ficha ↗</b></a></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="../index.html"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a><p>Construyendo, experimentando y documentando.</p><a href="../cv.html">CURRÍCULUM ↗</a><a href="https://github.com/Noocoks" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><span class="copyright">© <span id="year">2026</span> NOOCOKS</span></div></footer>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
