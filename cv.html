@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Currículum profesional de Noocoks: desarrollo web, software, sistemas y ciberseguridad.">
+  <title>Currículum — Noocoks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/cv.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="cv-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Noocoks, inicio"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a>
+      <nav class="main-nav cv-nav" aria-label="Navegación del currículum">
+        <a href="index.html">Portfolio</a>
+        <a href="https://github.com/Noocoks" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="nav-contact" href="assets/docs/cv-noocoks.pdf" download>Descargar PDF <span>↓</span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="container cv-main">
+    <div class="cv-toolbar">
+      <a class="cv-back" href="index.html">← Volver al portfolio</a>
+      <div class="cv-actions">
+        <span class="cv-updated" id="cv-updated">Actualizando información…</span>
+        <a class="button button-primary" href="assets/docs/cv-noocoks.pdf" download>Descargar CV <span>↓</span></a>
+        <button class="cv-print" type="button" onclick="window.print()">Imprimir</button>
+      </div>
+    </div>
+    <article class="cv-document" id="cv-document" aria-live="polite">
+      <div class="cv-loading">Cargando currículum…</div>
+    </article>
+    <p class="cv-disclaimer">Este documento resume formación, experiencia y proyectos. Las tecnologías reflejan áreas trabajadas o exploradas y no equivalen necesariamente a certificaciones o niveles acreditados.</p>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a><p>Construyendo, experimentando y documentando.</p><a href="https://github.com/Noocoks" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><span class="copyright">© <span id="year"></span> NOOCOKS</span></div></footer>
+  <script src="assets/js/cv.js" defer></script>
+</body>
+</html>
