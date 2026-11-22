@@ -1,0 +1,126 @@
+{
+  "identity": {
+    "name": "Noocoks",
+    "role": "Desarrollador web y de software junior",
+    "location": "España",
+    "email": "nicoletobondia06@gmail.com",
+    "github": "https://github.com/Noocoks",
+    "portfolio": "https://noocoks.github.io/Pf/"
+  },
+  "summary": "Perfil técnico orientado al desarrollo de aplicaciones web y software, con interés transversal en sistemas y ciberseguridad. Aprendizaje práctico mediante proyectos propios, laboratorios controlados y documentación técnica. Enfoque en construir soluciones mantenibles, probarlas y mejorar su seguridad.",
+  "education": [
+    {
+      "title": "Desarrollo de Aplicaciones Web (DAW)",
+      "institution": "Formación profesional",
+      "period": "",
+      "details": "Formación en desarrollo web, programación, bases de datos, entornos y despliegue de aplicaciones."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Prácticas de desarrollo web",
+      "organization": "InforCopy",
+      "period": "",
+      "details": [
+        "Participación en tareas de desarrollo web durante el periodo de prácticas."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Libreta",
+      "description": "Base de conocimiento técnica sobre ciberseguridad y tecnología, desarrollada como sitio estático. Incluye navegación, búsqueda, documentación y automatizaciones con GitHub Actions.",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "GitHub Actions"
+      ],
+      "url": "https://github.com/Noocoks/Libreta"
+    },
+    {
+      "name": "SOUNWD",
+      "description": "Aplicación gráfica multiplataforma para gestionar descargas de audio desde enlaces compatibles, con opciones básicas y avanzadas. Versión Android en desarrollo.",
+      "technologies": [
+        "Python",
+        "Kivy",
+        "yt-dlp",
+        "Windows",
+        "Linux",
+        "Android"
+      ],
+      "url": "https://github.com/Noocoks/SOUNWD"
+    },
+    {
+      "name": "OLV — Open Live Video",
+      "description": "Aplicación de escritorio para crear vídeos verticales a partir de historias, con escenas, narración, subtítulos y renderizado local.",
+      "technologies": [
+        "Python",
+        "FFmpeg",
+        "Edge TTS",
+        "Pixabay"
+      ],
+      "url": "https://github.com/Noocoks/OpenLiveVideo"
+    }
+  ],
+  "skills": [
+    {
+      "area": "Desarrollo web",
+      "items": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Diseño responsive",
+        "Git"
+      ]
+    },
+    {
+      "area": "Programación y software",
+      "items": [
+        "Python",
+        "Kivy",
+        "SQL",
+        "PHP",
+        "CLI"
+      ]
+    },
+    {
+      "area": "Sistemas y despliegue",
+      "items": [
+        "Windows",
+        "Linux",
+        "Docker",
+        "Apache",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "area": "Ciberseguridad",
+      "items": [
+        "OSINT",
+        "Nmap",
+        "ADB",
+        "Hardening",
+        "Laboratorios controlados"
+      ]
+    },
+    {
+      "area": "Observabilidad",
+      "items": [
+        "Prometheus",
+        "Grafana",
+        "Exporters"
+      ]
+    },
+    {
+      "area": "IA y automatización",
+      "items": [
+        "Ollama",
+        "APIs de IA",
+        "Python"
+      ]
+    }
+  ],
+  "languages": [],
+  "updated_at": ""
+}
