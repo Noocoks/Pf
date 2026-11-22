@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Ficha técnica de Libreta: base de conocimiento estática sobre ciberseguridad, Android, IA y desarrollo.">
+  <title>Libreta — Ficha técnica | Noocoks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/projects.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="project-detail-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Noocoks, inicio"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a>
+      <nav class="main-nav detail-nav" aria-label="Navegación principal">
+        <a href="../index.html#sobre-mi">Perfil</a><a href="../index.html#proyectos">Proyectos</a><a href="../index.html#especialidades">Especialidades</a><a href="../index.html#laboratorio">Laboratorio</a><a href="../cv.html">CV <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido">
+    <section class="detail-hero detail-libreta">
+      <div class="container">
+        <div class="detail-breadcrumb"><a href="../index.html#proyectos">← Volver a proyectos</a><span>PROYECTO 01 / 03</span></div>
+        <div class="detail-hero-grid">
+          <div>
+            <p class="eyebrow"><span class="status-dot"></span> DOCUMENTACIÓN & CIBERSEGURIDAD</p>
+            <h1>Libreta<span class="accent">.</span></h1>
+            <p class="detail-lead">Una base de conocimiento técnica para aprender, experimentar y documentar herramientas, procedimientos y laboratorios en un espacio propio, consultable y en constante evolución.</p>
+            <div class="detail-actions"><a class="button button-primary" href="https://noocoks.github.io/Libreta/" target="_blank" rel="noopener noreferrer">Abrir la web <span>↗</span></a><a class="detail-text-link" href="https://github.com/Noocoks/Libreta" target="_blank" rel="noopener noreferrer">Código fuente ↗</a></div>
+          </div>
+          <div class="detail-brand-panel">
+            <img src="https://raw.githubusercontent.com/Noocoks/Libreta/master/images/logo.webp" alt="Logotipo original de Libreta">
+            <span>LEARN · EXPERIMENT · DOCUMENT</span>
+            <small>STATIC KNOWLEDGE BASE / 001</small>
+          </div>
+        </div>
+        <div class="detail-meta"><span><b>TIPO</b> Sitio estático</span><span><b>ESTADO</b> En evolución</span><span><b>STACK</b> HTML · CSS · JavaScript</span></div>
+      </div>
+    </section>
+    <section class="container detail-body">
+      <div class="detail-main-column">
+        <section class="detail-section">
+          <p class="eyebrow">01 — PROPÓSITO</p><h2>El conocimiento también necesita <span class="muted">estructura.</span></h2>
+          <p>Libreta reúne documentación que de otro modo quedaría repartida entre notas, comandos, pruebas y referencias. Su objetivo es convertir ese aprendizaje en material reutilizable: encontrar una guía, seguir un procedimiento, consultar una herramienta y ampliar la documentación cuando aparece algo nuevo.</p>
+          <p>El contenido abarca ciberseguridad, OSINT, Android, inteligencia artificial, desarrollo y laboratorios prácticos. La documentación está orientada al aprendizaje y a pruebas en entornos autorizados.</p>
+        </section>
+        <section class="detail-section">
+          <p class="eyebrow">02 — FUNCIONALIDADES</p><h2>Consulta y navegación <span class="muted">sin fricción.</span></h2>
+          <div class="detail-feature-grid">
+            <article><span>01</span><h3>Navegación jerárquica</h3><p>Árbol de categorías y subcategorías para recorrer la wiki y mantener organizado el contenido.</p></article>
+            <article><span>02</span><h3>Búsqueda técnica</h3><p>Buscador con soporte para acentos, etiquetas y caracteres especiales.</p></article>
+            <article><span>03</span><h3>Contexto relacionado</h3><p>Historial, breadcrumbs, enlaces internos y sugerencias de contenido relacionado.</p></article>
+            <article><span>04</span><h3>Métricas automáticas</h3><p>GitHub Actions recalcula estadísticas del código y actualiza los datos JSON consumidos por la wiki.</p></article>
+          </div>
+        </section>
+        <section class="detail-section">
+          <p class="eyebrow">03 — ARQUITECTURA</p><h2>Separar responsabilidades para <span class="muted">poder crecer.</span></h2>
+          <p>La web se mantiene como sitio estático. La estructura separa contenido documental, presentación, lógica de cliente, datos JSON y automatizaciones.</p>
+          <div class="architecture-list">
+            <div><b>HTML</b><span>Páginas de entrada, wiki y estructura de navegación.</span></div>
+            <div><b>CSS modular</b><span>Seis hojas funcionales importadas desde <code>styles.css</code>: variables, base, componentes, responsive, portada y tema.</span></div>
+            <div><b>JavaScript</b><span>Interacciones de navegación, búsqueda y presentación de información.</span></div>
+            <div><b>JSON</b><span>Índice del árbol y estadísticas generadas para la interfaz.</span></div>
+            <div><b>GitHub Actions</b><span>Automatización del recuento de líneas y controles de calidad.</span></div>
+          </div>
+          <pre class="detail-code"><code>Contenido ───────┐
+Estilos / JS ────┼──&gt; Sitio estático
+Datos JSON ─────┘         ▲
+                          │
+                  GitHub Actions
+                          │
+                 Estadísticas JSON</code></pre>
+        </section>
+        <section class="detail-section">
+          <p class="eyebrow">04 — DECISIONES TÉCNICAS</p><h2>Ligero, modular y <span class="muted">mantenible.</span></h2>
+          <ul class="detail-bullets">
+            <li><b>Sitio estático:</b> evita necesitar un backend para consultar la documentación publicada.</li>
+            <li><b>CSS por responsabilidades:</b> permite modificar una capa visual sin concentrar todos los estilos en un único archivo monolítico.</li>
+            <li><b>Datos separados:</b> el árbol y las estadísticas viven en JSON, fuera de la presentación.</li>
+            <li><b>Automatización:</b> las métricas se calculan en CI y no dependen de actualizar cifras manualmente.</li>
+            <li><b>Sin commits innecesarios:</b> el workflow evita publicar un cambio cuando las estadísticas no han variado.</li>
+          </ul>
+        </section>
+        <section class="detail-section">
+          <p class="eyebrow">05 — EVOLUCIÓN</p><h2>Una documentación <span class="muted">viva.</span></h2>
+          <p>El proyecto se amplía de forma incremental con nuevas notas, guías, herramientas y laboratorios. La prioridad es mantener la navegación, la estructura y la calidad de la documentación a medida que crece el contenido.</p>
+          <div class="detail-status-note"><span class="status-dot"></span><div><b>Estado documentado: activo</b><p>El repositorio mantiene el desarrollo de la web, sus automatizaciones y la ampliación progresiva de contenidos.</p></div></div>
+        </section>
+      </div>
+      <aside class="detail-aside">
+        <div class="aside-block"><span class="eyebrow">TECNOLOGÍAS</span><div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>JSON</span><span>Python</span><span>GitHub Actions</span></div></div>
+        <div class="aside-block"><span class="eyebrow">ÁREAS DOCUMENTADAS</span><ul><li>Ciberseguridad</li><li>OSINT y reconocimiento</li><li>Android y ADB</li><li>IA y modelos locales</li><li>Desarrollo y automatización</li><li>Laboratorios</li></ul></div>
+        <div class="aside-block"><span class="eyebrow">RECURSOS</span><a href="https://noocoks.github.io/Libreta/wiki.html" target="_blank" rel="noopener noreferrer">Explorar la wiki ↗</a><a href="https://github.com/Noocoks/Libreta/actions" target="_blank" rel="noopener noreferrer">Workflows y controles ↗</a><a href="https://github.com/Noocoks/Libreta/blob/master/README.md" target="_blank" rel="noopener noreferrer">README técnico ↗</a></div>
+      </aside>
+    </section>
+    <section class="container detail-next"><span class="eyebrow">SIGUIENTE PROYECTO</span><a href="sounwd.html"><span>SOUNWD — Software multiplataforma</span><b>Explorar ficha ↗</b></a></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="../index.html"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a><p>Construyendo, experimentando y documentando.</p><a href="../cv.html">CURRÍCULUM ↗</a><a href="https://github.com/Noocoks" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><span class="copyright">© <span id="year">2026</span> NOOCOKS</span></div></footer>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
