@@ -4603,3 +4603,18 @@ body::after {
     max-width:100%;
   }
 }
+
+
+/* MOBILE HERO GUTTERS — match the spacing used by the other sections */
+@media (max-width:680px) {
+  .hero.container {
+    width:calc(100% - 36px);
+    max-width:var(--max);
+    margin-inline:auto;
+  }
+}
+@media (max-width:390px) {
+  .hero.container {
+    width:calc(100% - 30px);
+  }
+}
