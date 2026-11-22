@@ -45,7 +45,7 @@ jobs:
         run: python scripts/generate_cv.py
       - name: Commit updated PDF
         run: |
-          if git diff --quiet -- assets/docs/cv-noocoks.pdf; then
+          if [ -z "$(git status --porcelain -- assets/docs/cv-noocoks.pdf)" ]; then
             echo "CV PDF is already up to date."
             exit 0
           fi
