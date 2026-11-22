@@ -227,7 +227,7 @@
         let animationFrame = 0;
         const resizeMatrix = () => {
           const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-          width = window.innerWidth;
+          width = document.documentElement.clientWidth || window.innerWidth;
           height = window.innerHeight;
           canvas.width = Math.floor(width * ratio);
           canvas.height = Math.floor(height * ratio);
