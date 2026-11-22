@@ -28,6 +28,19 @@ jobs:
           python-version: "3.12"
       - name: Install PDF dependency
         run: python -m pip install reportlab
+      - name: Stamp CV data update date
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import date
+          path = "data/cv.json"
+          with open(path, encoding="utf-8") as source:
+              data = json.load(source)
+          data["updated_at"] = date.today().isoformat()
+          with open(path, "w", encoding="utf-8") as target:
+              json.dump(data, target, ensure_ascii=False, indent=2)
+              target.write("\\n")
+          PY
       - name: Generate PDF
         run: python scripts/generate_cv.py
       - name: Commit updated PDF
@@ -38,6 +51,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/docs/cv-noocoks.pdf
+          git add data/cv.json assets/docs/cv-noocoks.pdf
           git commit -m "chore(cv): regenerate PDF"
           git push
