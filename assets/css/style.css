@@ -4618,3 +4618,23 @@ body::after {
     width:calc(100% - 30px);
   }
 }
+
+
+/* MOBILE EFFECTS — remove accidental clipping from ambient motion layers */
+@media (max-width:680px) {
+  /* The viewport still clips the page; the hero no longer clips its own glows. */
+  .hero {
+    overflow:visible;
+  }
+
+  /* Let blurred light fields extend beyond their layer instead of hitting
+     an artificial rectangular edge. The fixed atmosphere remains viewport-sized. */
+  .scroll-atmosphere {
+    overflow:visible;
+    contain:layout style;
+  }
+
+  .scroll-atmosphere .atmosphere-layer {
+    overflow:visible;
+  }
+}
