@@ -26,7 +26,7 @@ styles = getSampleStyleSheet()
 styles.add(ParagraphStyle(name="CVName", parent=styles["Title"], fontName="Helvetica-Bold", fontSize=25, leading=28, textColor=INK, alignment=TA_LEFT, spaceAfter=3))
 styles.add(ParagraphStyle(name="CVRole", parent=styles["Normal"], fontName="Helvetica", fontSize=10, leading=14, textColor=RED, spaceAfter=7))
 styles.add(ParagraphStyle(name="CVContact", parent=styles["Normal"], fontName="Helvetica", fontSize=8, leading=11, textColor=MUTED))
-styles.add(ParagraphStyle(name="CVSection", parent=styles["Heading2"], fontName="Helvetica-Bold", fontSize=10, leading=13, textColor=RED, spaceBefore=10, spaceAfter=5, uppercase=True))
+styles.add(ParagraphStyle(name="CVSection", parent=styles["Heading2"], fontName="Helvetica-Bold", fontSize=10, leading=13, textColor=RED, spaceBefore=7, spaceAfter=4, uppercase=True))
 styles.add(ParagraphStyle(name="CVBody", parent=styles["BodyText"], fontName="Helvetica", fontSize=8.5, leading=12, textColor=INK, spaceAfter=3))
 styles.add(ParagraphStyle(name="CVSmall", parent=styles["BodyText"], fontName="Helvetica", fontSize=7.5, leading=10, textColor=MUTED, spaceAfter=2))
 styles.add(ParagraphStyle(name="CVItem", parent=styles["BodyText"], fontName="Helvetica-Bold", fontSize=9, leading=12, textColor=INK, spaceAfter=2))
@@ -58,7 +58,7 @@ def education(item):
     meta = " · ".join(x for x in [item.get("institution", ""), item.get("period", "")] if x)
     if meta: out.append(p(meta, "CVSmall"))
     if item.get("details"): out.append(p(item["details"]))
-    out.append(Spacer(1, 2*mm))
+    out.append(Spacer(1, 1*mm))
     return out
 
 def experience(item):
@@ -88,7 +88,7 @@ if data.get("skills"):
     table.setStyle(TableStyle([
         ("VALIGN", (0,0), (-1,-1), "TOP"), ("LINEBELOW", (0,0), (-1,-1), .35, PALE),
         ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 7),
-        ("TOPPADDING", (0,0), (-1,-1), 4), ("BOTTOMPADDING", (0,0), (-1,-1), 4)
+        ("TOPPADDING", (0,0), (-1,-1), 2.5), ("BOTTOMPADDING", (0,0), (-1,-1), 2.5)
     ]))
     story.append(table)
 if data.get("languages"):
@@ -107,6 +107,6 @@ def footer(canvas, doc):
     canvas.drawRightString(width-20*mm, 10*mm, f"{datetime.now(timezone.utc).strftime('%d/%m/%Y')}  ·  {doc.page}")
     canvas.restoreState()
 
-doc = SimpleDocTemplate(OUTPUT, pagesize=A4, rightMargin=20*mm, leftMargin=20*mm, topMargin=17*mm, bottomMargin=22*mm, title="CV — Noocoks", author="Noocoks")
+doc = SimpleDocTemplate(OUTPUT, pagesize=A4, rightMargin=20*mm, leftMargin=20*mm, topMargin=15*mm, bottomMargin=20*mm, title="CV — Noocoks", author="Noocoks")
 doc.build(story, onFirstPage=footer, onLaterPages=footer)
 print(f"Generated {OUTPUT}")
