@@ -209,7 +209,7 @@
   }
 
   // Matrix data rain: decorative only, throttled and disabled for reduced-motion users.
-  if (!reduceMotion && !/Mobi|Android/i.test(navigator.userAgent) || (!reduceMotion && window.innerWidth > 680)) {
+  if (!reduceMotion) {
     const atmosphere = document.querySelector('.scroll-atmosphere');
     if (atmosphere) {
       const canvas = document.createElement('canvas');
@@ -241,8 +241,10 @@
           animationFrame = window.requestAnimationFrame(drawMatrix);
           if (time - lastFrame < 42 || document.hidden) return;
           lastFrame = time;
-          context.fillStyle = 'rgba(5, 8, 8, 0.105)';
+          context.globalCompositeOperation = 'destination-out';
+          context.fillStyle = 'rgba(0, 0, 0, 0.16)';
           context.fillRect(0, 0, width, height);
+          context.globalCompositeOperation = 'source-over';
           columns.forEach((position, index) => {
             const x = index * fontSize;
             const y = position * fontSize;
