@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Ficha técnica de OLV — Open Live Video: aplicación local para crear vídeos verticales a partir de historias.">
+  <title>OLV — Open Live Video — Ficha técnica | Noocoks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/projects.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body class="project-detail-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html" aria-label="Noocoks, inicio"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a><nav class="main-nav detail-nav" aria-label="Navegación principal"><a href="../index.html#sobre-mi">Perfil</a><a href="../index.html#proyectos">Proyectos</a><a href="../index.html#especialidades">Especialidades</a><a href="../index.html#laboratorio">Laboratorio</a><a href="../cv.html">CV <span>↗</span></a></nav></div></header>
+  <main id="contenido">
+    <section class="detail-hero detail-olv"><div class="container">
+      <div class="detail-breadcrumb"><a href="../index.html#proyectos">← Volver a proyectos</a><span>PROYECTO 03 / 03</span></div>
+      <div class="detail-hero-grid"><div>
+        <p class="eyebrow"><span class="status-dot"></span> AUTOMATIZACIÓN AUDIOVISUAL</p><h1>OLV<span class="accent">.</span></h1>
+        <p class="detail-lead">Open Live Video transforma una historia escrita en un vídeo vertical mediante una cadena local de preparación de escenas, búsqueda de clips, narración, subtítulos y renderizado.</p>
+        <div class="detail-actions"><a class="button button-primary" href="https://github.com/Noocoks/OpenLiveVideo" target="_blank" rel="noopener noreferrer">Ver repositorio <span>↗</span></a><a class="detail-text-link" href="https://github.com/Noocoks/OpenLiveVideo/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licencia AGPL-3.0-or-later ↗</a></div>
+      </div><div class="detail-brand-panel"><img src="https://raw.githubusercontent.com/Noocoks/OpenLiveVideo/main/assets/branding/olv-master.svg" alt="Logotipo vectorial original de OLV — Open Live Video"><span>TU IMAGINACIÓN EN VIDA</span><small>LOCAL VIDEO PRODUCTION / 003</small></div></div>
+      <div class="detail-meta"><span><b>TIPO</b> Aplicación de escritorio</span><span><b>ESTADO</b> Proyecto público</span><span><b>PLATAFORMAS</b> Windows · Linux</span></div>
+    </div></section>
+    <section class="container detail-body"><div class="detail-main-column">
+      <section class="detail-section"><p class="eyebrow">01 — PROPÓSITO</p><h2>De una historia escrita a un <span class="muted">formato audiovisual.</span></h2>
+        <p>OLV permite preparar YouTube Shorts a partir de una historia redactada por el usuario. La aplicación organiza el texto en escenas, busca clips de apoyo, genera narración en español, añade subtítulos y monta un MP4 vertical de 1080 × 1920.</p>
+        <p>El enfoque es local: la preparación y el montaje se realizan en el equipo del usuario. Los servicios externos utilizados para obtener clips y generar voz están sujetos a su disponibilidad, condiciones y límites.</p>
+      </section>
+      <section class="detail-section"><p class="eyebrow">02 — FLUJO DE TRABAJO</p><h2>Revisar antes de <span class="muted">renderizar.</span></h2>
+        <div class="pipeline">
+          <div><span>01</span><b>Historia</b><p>Escribir o pegar el texto y definir un título opcional.</p></div><i>↓</i>
+          <div><span>02</span><b>Escenas</b><p>Separar párrafos y preparar la lista de escenas.</p></div><i>↓</i>
+          <div><span>03</span><b>Recursos</b><p>Buscar clips en Pixabay y generar narración con Edge TTS.</p></div><i>↓</i>
+          <div><span>04</span><b>Revisión</b><p>Editar el texto, reproducir clips y reordenar escenas antes de continuar.</p></div><i>↓</i>
+          <div><span>05</span><b>Renderizado</b><p>Montar el vídeo vertical con subtítulos y FFmpeg.</p></div>
+        </div>
+      </section>
+      <section class="detail-section"><p class="eyebrow">03 — FUNCIONALIDADES</p><h2>Una producción guiada y <span class="muted">controlable.</span></h2>
+        <div class="detail-feature-grid">
+          <article><span>01</span><h3>Editor de historias</h3><p>Escritura, título, autoguardado y apertura/guardado de borradores.</p></article>
+          <article><span>02</span><h3>Revisión de escenas</h3><p>Edición del texto, reproducción externa de clips y reordenación antes del montaje.</p></article>
+          <article><span>03</span><h3>Voz y música</h3><p>Selección de voz, música y carpeta de salida desde la configuración.</p></article>
+          <article><span>04</span><h3>Procesos cancelables</h3><p>Progreso por fases y cancelación de descargas, narración y renderizado.</p></article>
+          <article><span>05</span><h3>Datos y diagnósticos</h3><p>Borradores, archivos temporales y registros rotativos en la carpeta de datos del usuario.</p></article>
+          <article><span>06</span><h3>Paquetes de escritorio</h3><p>Instalador para Windows y paquetes DEB/portable para Debian y Ubuntu x86_64.</p></article>
+        </div>
+      </section>
+      <section class="detail-section"><p class="eyebrow">04 — ARQUITECTURA Y DECISIONES</p><h2>Preparación y montaje como <span class="muted">fases separadas.</span></h2>
+        <p>El flujo desacopla la preparación de recursos del renderizado final. Esa separación permite inspeccionar y corregir las escenas antes de generar el vídeo definitivo.</p>
+        <div class="architecture-list">
+          <div><b>Interfaz de escritorio</b><span>Editor y controles para gestionar historia, escenas, preferencias y tareas.</span></div>
+          <div><b>Pixabay</b><span>Fuente externa de clips, configurada mediante una clave API.</span></div>
+          <div><b>Edge TTS</b><span>Generación de narración en español mediante un servicio externo.</span></div>
+          <div><b>FFmpeg / FFprobe</b><span>Procesamiento y montaje del vídeo vertical final.</span></div>
+          <div><b>Almacén de credenciales</b><span>La clave de Pixabay se guarda en Windows Credential Manager o Secret Service/KWallet en Linux, cuando está disponible.</span></div>
+          <div><b>Datos locales</b><span>Borradores, temporales y logs quedan fuera de <code>site-packages</code>, en la carpeta de datos del usuario.</span></div>
+        </div>
+        <pre class="detail-code"><code>Historia del usuario
+        │
+        ▼
+  Preparación de escenas
+        │
+        ▼
+ Clips + narración + subtítulos
+        │
+        ▼
+   Revisión manual
+        │
+        ▼
+  FFmpeg → MP4 1080×1920
+        │
+        ▼
+   Revisión del resultado</code></pre>
+      </section>
+      <section class="detail-section"><p class="eyebrow">05 — LÍMITES Y TRANSPARENCIA</p><h2>Automatizar sin <span class="muted">quitar el control.</span></h2>
+        <ul class="detail-bullets">
+          <li>OLV no publica vídeos automáticamente en YouTube: el resultado queda para revisión y publicación manual.</li>
+          <li>No genera historias automáticamente ni crea vídeo generativo mediante IA; el usuario aporta el texto.</li>
+          <li>Pixabay y Edge TTS son servicios externos y pueden cambiar sus condiciones, límites o disponibilidad.</li>
+          <li>La clave de Pixabay se guarda en el almacén de credenciales del sistema cuando existe uno disponible.</li>
+        </ul>
+      </section>
+      <section class="detail-section"><p class="eyebrow">06 — ESTADO Y LICENCIA</p><h2>Software libre con <span class="muted">copyleft.</span></h2>
+        <p>OLV se publica bajo GNU AGPL-3.0-or-later. Permite usar, estudiar, modificar y redistribuir el programa respetando las obligaciones de la licencia, incluida la oferta del código fuente correspondiente para versiones derivadas distribuidas y para modificaciones ofrecidas como servicio de red.</p>
+        <div class="detail-status-note"><span class="status-dot"></span><div><b>Estado documentado: proyecto público</b><p>El repositorio documenta instalación, configuración, creación de Shorts, pruebas y generación de paquetes de escritorio.</p></div></div>
+      </section>
+    </div><aside class="detail-aside">
+      <div class="aside-block"><span class="eyebrow">TECNOLOGÍAS</span><div class="tag-list"><span>Python</span><span>FFmpeg</span><span>FFprobe</span><span>Edge TTS</span><span>Pixabay API</span><span>AGPL-3.0</span></div></div>
+      <div class="aside-block"><span class="eyebrow">PLATAFORMAS</span><ul><li>Windows</li><li>Linux Debian/Ubuntu x86_64</li></ul></div>
+      <div class="aside-block"><span class="eyebrow">RECURSOS</span><a href="https://github.com/Noocoks/OpenLiveVideo/blob/main/README.md" target="_blank" rel="noopener noreferrer">README técnico ↗</a><a href="https://github.com/Noocoks/OpenLiveVideo/actions" target="_blank" rel="noopener noreferrer">Acciones y validaciones ↗</a><a href="https://github.com/Noocoks/OpenLiveVideo/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Texto de la licencia ↗</a></div>
+    </aside></section>
+    <section class="container detail-next"><span class="eyebrow">VOLVER AL INICIO</span><a href="../index.html#proyectos"><span>Explorar los tres proyectos</span><b>Volver a proyectos ↗</b></a></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="../index.html"><span class="brand-mark">N<span>.</span></span><span>NOOCOKS</span></a><p>Construyendo, experimentando y documentando.</p><a href="../cv.html">CURRÍCULUM ↗</a><a href="https://github.com/Noocoks" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><span class="copyright">© <span id="year">2026</span> NOOCOKS</span></div></footer>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
