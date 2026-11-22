@@ -67,8 +67,6 @@
 .detail-next>a b { color:#bd5965; font:10px var(--mono); letter-spacing:.06em; }
 @media(max-width:900px) { .detail-hero-grid { gap:30px; } .detail-body { grid-template-columns:minmax(0,1fr) 230px; gap:30px; } }
 @media(max-width:680px) {
-  .detail-nav { display:flex; position:static; height:auto; padding:0; background:transparent; border:0; flex-direction:row; gap:12px; overflow-x:auto; }
-  .detail-nav a { flex:0 0 auto; padding:8px 0; border:0; font-size:10px; }
   .detail-hero { padding-top:25px; }
   .detail-breadcrumb { padding-bottom:32px; font-size:8px; }
   .detail-hero-grid { grid-template-columns:1fr; gap:30px; }
