@@ -249,9 +249,9 @@
             const x = index * fontSize;
             const y = position * fontSize;
             const hot = index % 11 === 0;
-            context.fillStyle = hot ? 'rgba(224, 54, 73, 0.76)' : 'rgba(75, 210, 145, 0.52)';
+            context.fillStyle = hot ? 'rgba(238, 76, 91, 0.88)' : 'rgba(157, 43, 58, 0.66)';
             context.shadowBlur = hot ? 12 : 7;
-            context.shadowColor = hot ? 'rgba(213, 38, 59, .45)' : 'rgba(55, 210, 135, .28)';
+            context.shadowColor = hot ? 'rgba(224, 54, 73, .62)' : 'rgba(125, 24, 42, .42)';
             context.fillText(glyphs[Math.floor(Math.random() * glyphs.length)], x, y);
             context.shadowBlur = 0;
             if (y > height && Math.random() > 0.978) columns[index] = 0;
